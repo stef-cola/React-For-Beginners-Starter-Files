@@ -1,19 +1,19 @@
-import React from 'react';
+import React from 'react'
 
 class NotFound extends React.Component {
   render() {
-    return(
+    return (
       <div className="notFound">
         <h2>Go Fish.</h2>
-        <p className="lead">This page couldn't be found. Please check the URL and try again. </p>
+        <p className="lead">
+          This page couldn't be found. Please check the URL and try again.{' '}
+        </p>
         <a href="/">
-          <button>
-            Go Fishing.
-          </button>
+          <button>Go Fishing.</button>
         </a>
       </div>
     )
   }
 }
 
-export default NotFound;
+export default NotFound
