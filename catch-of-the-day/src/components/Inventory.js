@@ -5,7 +5,6 @@ import memoize from 'lodash.memoize'
 class Inventory extends React.Component {
   constructor() {
     super()
-    this.handleChange = this.handleChange.bind(this)
     this.renderInventory = this.renderInventory.bind(this)
   }
   //use lodash.memoize
