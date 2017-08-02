@@ -76,10 +76,6 @@ class Inventory extends React.Component {
       });
     })
 
-    //Does the user own the store
-
-
-
   }
 
   renderLogin() {
