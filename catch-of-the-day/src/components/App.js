@@ -7,21 +7,10 @@ import sampleFishes from '../sample-fishes'
 import base from '../base'
 
 class App extends React.Component {
-  constructor() {
-    super()
-
-    this.addFish = this.addFish.bind(this)
-    this.loadSamples = this.loadSamples.bind(this)
-    this.addToOrder = this.addToOrder.bind(this)
-    this.updateFish = this.updateFish.bind(this)
-    this.removeFish = this.removeFish.bind(this)
-    this.removeFromOrder = this.removeFromOrder.bind(this)
-
-    this.state = {
-      fishes: {},
-      order: {},
-    }
-  }
+  state  = {
+    fishes: {},
+    order: {},
+  };
 
   componentWillMount() {
     //this runs right before the <App> is rendered.
@@ -56,7 +45,7 @@ class App extends React.Component {
     )
   }
 
-  addFish(fish) {
+  addFish = (fish) => {
     //Copy the current state
     const fishes = { ...this.state.fishes }
     //Set timestamp
@@ -65,49 +54,49 @@ class App extends React.Component {
     fishes[`fish-${timestamp}`] = fish
     //Set State
     this.setState({ fishes })
-  }
+  };
 
-  updateFish(key, updatedFish) {
+  updateFish = (key, updatedFish) => {
     //Copy the current state
     const fishes = { ...this.state.fishes }
     //Overwrite the one fish that has been updated.
     fishes[key] = updatedFish
     //Set State
     this.setState({ fishes })
-  }
+  };
 
-  removeFish(key) {
+  removeFish = (key) => {
     //Copy the current state
     const fishes = { ...this.state.fishes }
     //Delete the specific fish. Note: use null as this is required by Firebase
     fishes[key] = null
     //Set the State
     this.setState({ fishes })
-  }
+  };
 
-  removeFromOrder(key) {
+  removeFromOrder = (key) => {
     //Copy the current state
     const order = { ...this.state.order }
     //Delete the specific fish. Note: no need to use null as this is stored in localStorage
     delete order[key]
     //Set the State
     this.setState({ order })
-  }
+  };
 
-  addToOrder(key) {
+  addToOrder = (key) => {
     //Copy the current state
     const order = { ...this.state.order }
     //update the new number of fish to be ordered
     order[key] = order[key] + 1 || 1
     //Set State
     this.setState({ order })
-  }
+  };
 
-  loadSamples() {
+  loadSamples = () => {
     this.setState({
       fishes: sampleFishes,
     })
-  }
+  };
 
   render() {
     return (
@@ -142,10 +131,9 @@ class App extends React.Component {
       </div>
     )
   }
-}
-
-App.propTypes = {
-  params: React.PropTypes.object.isRequired,
+  static propTypes = {
+    params: React.PropTypes.object.isRequired,
+  };
 }
 
 export default App
